@@ -1,0 +1,11 @@
+﻿@page "/user/create"
+@layout UserLayout
+
+<h3>UserCreate @MaProp</h3>
+
+
+<input type="text" @bind="@Value" @bind:event="oninput">
+
+<p>Value = @Value</p>
+
+<SayHello HelloEvent="ReceiveHello"></SayHello>

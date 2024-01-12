@@ -1,0 +1,15 @@
+﻿<h3>SayHello</h3>
+
+<button @onclick="sayHello">HELLO</button>
+
+@code {
+
+    [Parameter]
+    public EventCallback<string> HelloEvent { get; set; }
+
+    private void sayHello()
+    {
+        HelloEvent.InvokeAsync("Hello");
+    }
+
+}
