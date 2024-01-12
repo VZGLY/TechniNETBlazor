@@ -1,0 +1,37 @@
+﻿@page "/question"
+
+<h3>MainQuestion @id</h3>
+
+
+<ChildQuestion over="@over" Answer="@GetAnswer" Question="@Questions[id]"></ChildQuestion>
+
+@code {
+    [Parameter]
+    public int id { get; set; } = 0;
+
+    private bool over = false;
+
+
+    public List<string> Questions { get; set; } = new List<string>
+    {
+        "Est-ce que les poussins ont 8 Pattes ?",
+        "Vaut mieux avoir trois yeux que 2 doigts ?",
+        "La biere rend elle adulte ?"
+    };
+
+    private void GetAnswer(bool answer)
+    {
+        Console.WriteLine($"La reponse a la question {id} est {answer}");
+        if (id + 2 > Questions.Count())
+        {
+            Console.WriteLine("CFINIIIII");
+            over = true;
+        }
+        else
+        {
+            id++;
+        }
+        
+    }
+
+}

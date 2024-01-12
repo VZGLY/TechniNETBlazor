@@ -1,0 +1,28 @@
+﻿<h3>ChildQuestion</h3>
+
+<p>@Question</p>
+
+<button disabled="@over" @onclick="answerTrue">Vrai</button>
+<button disabled="@over" @onclick="answerFalse">Faux</button>
+@code {
+
+    [Parameter]
+    public bool over { get; set; }
+
+    [Parameter]
+    public string Question { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> Answer { get; set; }
+
+    private void answerTrue()
+    {
+        Answer.InvokeAsync(true);
+    }
+
+    private void answerFalse()
+    {
+        Answer.InvokeAsync(false);
+    }
+
+}
