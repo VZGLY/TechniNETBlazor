@@ -1,0 +1,20 @@
+﻿@page "/forms"
+
+
+<h3>Forms</h3>
+
+<EditForm Model="monUser" OnValidSubmit="Validate" OnInvalidSubmit="Invalidate">
+    <DataAnnotationsValidator/>
+    
+    <label>Email</label>
+    <InputText id="email" @bind-Value="monUser.Email" class="form-control"></InputText>
+    <ValidationMessage For="@(()=> monUser!.Email)" />
+
+    <button type="submit">Valider</button>
+
+
+</EditForm>
+
+@code {
+
+}
